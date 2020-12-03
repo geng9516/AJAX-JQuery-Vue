@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			div{
+				background: yellow;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			//在dom对象创建好后,绑定事件
+			$(function(){
+				$("#btn1").click(function(){
+					//使用remove:删除父和子所有的dom对象
+					$("select").remove();
+					
+				})
+				
+				$("#btn2").click(function(){
+					//使用empty 删除子dom对象
+					$("select").empty();
+				})
+				
+				$("#btn3").click(function(){
+					//使用append,增加dom对象
+					//$("#fatcher").append("<input type='button' value='我是增加的按钮' />")
+					
+					//增加一个table
+					$("#fatcher").append("<table border=1><tr><td>第一列</td><td>第二列</td></tr></table>");
+				})
+				
+				$("#btn4").click(function(){
+					//使用html()函数,获取数组中第一个dom对象的文本值(innerHTML)
+					//alert($("span").text()); // 我是mysql数据库
+					alert( $("span").html() ); //我是mysql <b>数据库</b>
+					
+				})
+				
+				$("#btn5").click(function(){
+					//使用 html(有参数):设置dom对象的文本值
+					$("span").html("我是新的<b>数据</b>");
+					
+				})
+				
+				$("#btn6").click(function(){
+					//循环普通数组,非dom数组
+					var  arr = [ 11, 12, 13];
+					$.each(arr, function(i,n){
+						alert("循环变量："+i + "=====数组成员:"+ n);
+					})
+				})
+				
+				$("#btn7").click(function(){
+					//循环json
+					var json={"name":"张三","age":20};
+					
+					//var  obj = eval("{'name':'张三','age':20}");
+					
+					
+					$.each(json,function(i,n){
+						alert("i是key="+i+",n是值="+n);
+					})
+					
+				})
+				
+				$("#btn8").click(function(){
+					//循环dom数组
+					var domArray = $(":text");//dom数组
+						
+					$.each( domArray, function(i,n){
+						// n 是数组中的dom对象
+						alert("i="+i+"  , n="+n.value);
+					})
+				})
+				
+				$("#btn9").click(function(){
+					//循环jquery对象, jquery对象就是dom数组
+					$(":text").each(function(i,n){
+						alert("i="+i+"，n="+ n.value);
+					})
+					
+				})
+			})
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" value="刘备" />
+		<input type="text" value="关羽" />
+		<input type="text" value="张飞" />
+		
+		<br/>
+		<select>
+			<option value="老虎">老虎</option>
+			<option value="狮子">狮子</option>
+			<option value="豹子">豹子</option>
+		</select>
+		<br/>
+		<br/>
+		<select>
+			<option value="亚洲">亚洲</option>
+			<option value="欧洲">欧洲</option>
+			<option value="美洲">美洲</option>
+		</select>
+		<br/>
+		<br/>
+		<div id="fatcher">我是第一个div</div>
+		<br/
+		<br/>
+		<span>我是mysql <b>数据库</b></span>
+		<br/>
+		<span>我是jdbc</span>
+		<br/>
+		<br/>
+		
+		<input type="button" value="使用remove删除父和子对象" id="btn1"/>
+		<br/>
+		<br/>
+		<input type="button" value="使用empty删子对象" id="btn2"/>
+		<br/>
+		<br/>
+		<input type="button" value="使用append,增加dom对象" id="btn3"/>
+		<br/>
+		<br/>
+		<input type="button" value="获取第一个dom的文本值" id="btn4"/>
+		<br/>
+		<br/>
+		<input type="button" value="设置span的所以dom的文本值" id="btn5"/>
+		<br/>
+		<br/>
+		<input type="button" value="循环普通数组" id="btn6"/>
+		<br/>
+		<br/>
+		<input type="button" value="循环json" id="btn7"/>
+		<br/>
+		<br/>
+		<input type="button" value="循环dom数组" id="btn8"/>
+		<br/>
+		<br/>
+		<input type="button" value="循环jquery对象" id="btn9"/>
+	</body>
+</html>
