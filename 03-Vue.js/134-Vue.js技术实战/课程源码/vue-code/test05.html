@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="./css/animate.css">
+</head>
+<body>
+    
+    
+    <div id="app">
+
+        <input type="button" value="点击" @click="flag=!flag"/>
+        
+        <br/>
+        <br/>
+
+        <!--
+
+            animate.css为我们提供了
+            enter-active-class和leave-active-class
+            用来操作元素进场和离场的效果
+
+            以弹出弹出的形式处理进场和离场
+            animated bounceIn
+            animated bounceOut
+
+        -->
+        <!--
+        <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+            <p v-if="flag">弹出的信息msg</p>
+        </transition>
+        -->
+
+        <!--
+
+            我们可以将class="animated"写在元素中
+            这样在enter-active-class和leave-active-class中就不用重复写animated了
+
+            使用:duration="毫秒值" 来统一设置入场和离场动画时长
+
+        -->
+        <!--
+        <transition enter-active-class="bounceIn" leave-active-class="bounceOut" :duration="200">
+            <p v-if="flag" class="animated">弹出的信息msg123</p>
+        </transition>
+        -->
+
+        <!--
+
+            使用 :duration="{enter:200,leave:400}" 来分别设置入场和离场的时长
+
+        -->
+        <transition enter-active-class="bounceIn" leave-active-class="bounceOut"
+        :duration="{enter:200,leave:400}">
+                <p v-if="flag" class="animated">弹出的信息msg123123</p>
+            </transition>
+
+    </div>
+
+
+    <script>
+        
+        var vm = new Vue({
+
+            el : "#app",
+            data : {
+
+                "flag" : false
+
+            }
+
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <!-- 自定义两组Vuejs的样式，来控制transition内部的元素实现动画的效果 -->
+    <style>
+    
+        /*
+        
+            v-enter 这是一个时间点，是进入之前，元素的起始状态，此时还没有开始进入
+            v-leave-to 这时一个时间点 是动画离开之后，离开的终止状态，此时，元素动画已经结束了
+
+        */
+
+        .v-enter,.v-leave-to{
+
+            /*设置起始状态和结束状态团苏的透明度为0（表示隐藏元素）*/
+            opacity: 0;
+
+            /*
+            
+                该形式为普通的淡入淡出的动画效果，使用起来最简单，应用的最广泛
+            
+            */
+            /*transform: opacity*/
+            transform: translateY(150px);
+
+        }
+        
+        /*
+
+            .v-enter-active 这是一个时间段，表示元素入场的过程
+            .v-leave-active 这是一个时间段，表示元素离场的过程
+
+        */
+
+        .v-enter-active,.v-leave-active{
+
+            /*
+            
+                设置在指定的事件内完成动画的全部入场和离场的效果
+            
+            */
+            transition: all 1.8s ease;
+
+        }
+
+    </style>
+</head>
+<body>
+    
+    
+    <div id="app">
+
+        <input type="button" value="点击" @click="flag=!flag"/>
+
+        <br/>
+        <br/>
+
+        <!--
+
+            对于以下p标签中的信息，我们需要使用动画进行控制
+            需要使用transition元素，将需要被动画控制的元素包裹起来，对于当前信息的展现，我们需要包裹的就是p标签
+            transition元素，Vue官方为我们提供的
+
+        -->
+        <transition>
+            <p v-if="flag">abcdef</p>
+        </transition>
+    </div>
+
+
+    <script>
+        
+        var vm = new Vue({
+
+            el : "#app",
+            data : {
+
+                "flag" : false
+
+            }
+
+        })
+
+    </script>
+
+</body>
+</html>

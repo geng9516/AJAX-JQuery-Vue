@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           version="3.0">
+
+    <servlet>
+        <servlet-name>MyServlet01</servlet-name>
+        <servlet-class>com.bjpowernode.servlet.MyServlet01</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyServlet01</servlet-name>
+        <url-pattern>/myServlet01.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyServlet02</servlet-name>
+        <servlet-class>com.bjpowernode.servlet.MyServlet02</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyServlet02</servlet-name>
+        <url-pattern>/myServlet02.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyServlet03</servlet-name>
+        <servlet-class>com.bjpowernode.servlet.MyServlet03</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyServlet03</servlet-name>
+        <url-pattern>/myServlet03.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyServlet04</servlet-name>
+        <servlet-class>com.bjpowernode.servlet.MyServlet04</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyServlet04</servlet-name>
+        <url-pattern>/myServlet04.do</url-pattern>
+    </servlet-mapping>
+
+</web-app>

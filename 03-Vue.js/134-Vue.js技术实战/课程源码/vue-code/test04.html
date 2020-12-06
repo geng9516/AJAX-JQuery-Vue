@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <!-- 自定义两组Vuejs的样式，来控制transition内部的元素实现动画的效果 -->
+    <style>
+    
+        .tran1-enter-active{
+
+            animation: bounce-in .5s;
+
+        }
+
+        .tran1-leave-active{
+
+            animation: bounce-in .5s reverse;
+
+        }
+
+        .tran2-enter-active{
+
+            animation: bounce-in 3.5s;
+
+        }
+
+        .tran2-leave-active{
+
+            animation: bounce-in 3.5s reverse;
+
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+    
+    <div id="app">
+
+        <input type="button" value="点击1" @click="flag1=!flag1"/>
+
+        <br/>
+        <br/>
+
+        <transition name="tran1">
+            <p v-if="flag1">
+                abcdefasdfasdfassdfasd111111111111111111111111111111111111111111111<br/>
+                abcdefasdfasdfassdfasd111111111111111111111111111111111111111111111<br/>
+                abcdefasdfasdfassdfasd111111111111111111111111111111111111111111111
+            </p>
+        </transition>
+
+        <br/>
+        <br/>
+
+        <input type="button" value="点击2" @click="flag2=!flag2"/>
+        <transition name="tran2">
+            <p v-if="flag2">
+                abcdefasdfasdfassdfasd111111111111111111111111111111111111111111111<br/>
+                abcdefasdfasdfassdfasd111111111111111111111111111111111111111111111<br/>
+                abcdefasdfasdfassdfasd111111111111111111111111111111111111111111111
+            </p>
+        </transition>
+
+    </div>
+
+
+    <script>
+        
+        var vm = new Vue({
+
+            el : "#app",
+            data : {
+
+                "flag1" : false,
+                "flag2" : false
+
+            }
+
+        })
+
+    </script>
+
+</body>
+</html>

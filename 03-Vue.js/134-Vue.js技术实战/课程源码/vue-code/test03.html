@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <!-- 自定义两组Vuejs的样式，来控制transition内部的元素实现动画的效果 -->
+    <style>
+    
+        .v-enter-active{
+
+            /* 设置弹进时长 */
+            animation: bounce-in 3.5s;
+
+        }
+
+        .v-leave-active{
+
+            /*
+            
+                设置弹出的时长
+                正常的弹入弹出，都需要将reverse属性值加上
+
+            */
+            animation: bounce-in 3.5s reverse;
+
+        }
+
+
+        /*
+        
+            使用vue搭配css动画效果的实现
+            @keyframes：是CSS3定义的动画规则
+            bounce-in：表示弹入弹出的效果
+        
+        */
+
+        @keyframes bounce-in{
+
+            0%{
+
+                transform: scale(0);
+
+            }
+
+            50%{
+
+                transform: scale(1.5);
+
+            }
+
+            100%{
+
+                transform: scale(1);
+
+            }
+
+        } 
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    
+    <div id="app">
+
+        <input type="button" value="点击" @click="flag=!flag"/>
+
+        <br/>
+        <br/>
+
+        <!--
+
+            对于以下p标签中的信息，我们需要使用动画进行控制
+            需要使用transition元素，将需要被动画控制的元素包裹起来，对于当前信息的展现，我们需要包裹的就是p标签
+            transition元素，Vue官方为我们提供的
+
+        -->
+        <transition>
+            <p v-if="flag">
+                abcdefasdfasdfassdfasd111111111111111111111111111111111111111111111<br/>
+                abcdefasdfasdfassdfasd111111111111111111111111111111111111111111111<br/>
+                abcdefasdfasdfassdfasd111111111111111111111111111111111111111111111
+            </p>
+        </transition>
+    </div>
+
+
+    <script>
+        
+        var vm = new Vue({
+
+            el : "#app",
+            data : {
+
+                "flag" : false
+
+            }
+
+        })
+
+    </script>
+
+</body>
+</html>
